@@ -1,0 +1,71 @@
+#include<stdio.h>
+int main(){
+    int N;
+    scanf("%d",&N);
+    int a[N];
+    int A1=0,A2=0,A3=0,A5=0;
+    float A4=0;
+    int num1= 0,num2=0,num3=0,num4=0,num5=0;
+    for(int i=0;i<=N-1;i++){
+        scanf("%d",&a[i]);
+    }
+    for(int j=0;j<=N-1;j++){
+        if(a[j]%5==0 && a[j]%2==0){
+            A1=A1+a[j];
+            num1++;
+        }
+        else if(a[j]%5==1){
+            if(num2%2==0){
+                A2=A2+a[j];
+            }
+            else{
+                A2=A2-a[j];
+            }
+            num2++;
+        }
+        else if(a[j]%5==2){
+            A3++;
+            num3++;
+        }
+        else if(a[j]%5==3){
+            A4=A4+a[j];
+            num4++;
+        }
+        else if(a[j]%5==4 && a[j]>=A5){
+            A5=a[j];
+            num5++;
+        }
+    }    
+        if(num1!=0){
+            printf("%d ",A1);
+        }
+        else{
+            printf("N ");
+        }
+        if(num2!=0){
+            printf("%d ",A2);
+        }
+        else{
+            printf("N ");
+        }
+        if(num3!=0){
+            printf("%d ",A3);
+        }
+        else{
+            printf("N ");
+        }
+        if(num4 != 0){
+            A4=A4 / num4;
+            printf("%.1lf ",A4);
+        }
+        else{
+            printf("N ");
+        }
+        if(num5 != 0){
+            printf("%d\n",A5);
+        }
+        else{
+            printf("N\n");
+        }
+    return 0;
+}
