@@ -1,0 +1,20 @@
+#include<stdio.h>
+int main(){
+    int n = 0;
+    scanf("%d",&n);
+    int n1 =0,n2=0,n3=0;
+    n1= n / 100; 
+    n2=(n-100*n1) / 10; 
+    n3=n-100*n1-10*n2;
+    for(n1;n1>0;n1--){
+        printf("B");
+    }
+    for(n2;n2>0;n2--){
+        printf("S");
+    }
+    for(int i= 1;i <=n3;i++){
+        printf("%d",i);
+    }
+return 0;
+
+}
