@@ -1,0 +1,16 @@
+#define _CRT_SECURE_NO_DEPRECATE
+#include<stdio.h>
+int main() {
+    char py[10][5] = { "ling","yi","er","san","si","wu","liu","qi","ba","jiu" };
+    char ch, num[4];
+    int sum = 0, i;
+    while ((ch = getchar()) != '\n')
+        sum += ch - '0';
+    sprintf(num, "%d", sum);
+    for (i = 0; num[i] != 0; i++) {
+        if (i != 0)
+            printf(" ");
+        printf("%s", py[num[i] - '0']);
+    }
+    return 0;
+}
