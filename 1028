@@ -1,0 +1,44 @@
+#include<stdio.h>
+#include<string.h>
+struct person{
+	char name[6];
+	int year,month,day;
+	int num;
+};
+int main(){
+	int N;
+	scanf("%d",&N);
+	//p[0]是每次输入暂时存的地方，p[1]是存num最大的,p[2]是存num最小的 
+	struct person p[3];
+	//取有效范围内的最小，最大 
+	int maxnum=18140906;
+	int minnum=20140906 ;
+	int n=0;
+	int maxname;
+	int minname;
+	for(int i=0;i<=N-1;i++){
+		scanf("%s",&p[0].name );
+		scanf("%d/%d/%d",&p[0].year,&p[0].month,&p[0].day);
+		p[0].num=p[0].year*10000+p[0].month*100+p[0].day;
+		if(p[0].num >=18140906 && p[0].num<=20140906){
+			if(maxnum<p[0].num ){
+				maxnum=p[0].num ;
+				strcpy(p[1].name,p[0].name);
+			}
+			if(minnum>p[0].num ){
+				minnum=p[0].num ;
+				strcpy(p[2].name,p[0].name);
+			}
+			n++;
+		}
+	}
+	if(n!=0){
+		printf("%d",n);
+		printf(" %s",p[2].name  );
+		printf(" %s",p[1].name  );
+	}
+	else{
+		printf("%d",n);
+	}
+	return 0;
+}
