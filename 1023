@@ -1,0 +1,30 @@
+#include<stdio.h>
+int main(){
+	//输入序列 
+	int n[10];
+	int i=0;
+	char a;
+	do{
+		scanf("%d",&n[i]);
+		i++;
+	}while(a=getchar()!='\n');
+	//跳过0，先找到后面第一个不为0的数
+	int m=1;
+	while(n[m]==0){
+		m++;
+	} 
+	printf("%d",m);
+	for(int k=0;k<=9;k++){
+		if(k!=m){
+			for(int w=1;w<=n[k];w++){
+				printf("%d",k);
+			}
+		}
+		else{
+			for(int v=1;v<=n[k]-1;v++){
+				printf("%d",k);
+			}
+		}
+	}
+	return 0;
+}
