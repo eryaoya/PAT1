@@ -1,0 +1,49 @@
+#include<stdio.h>
+int square(int num){
+	int n=0;
+	for(int i=1;;i++){
+		if(num>=i*i){
+			n=i;	
+		}
+		else{
+			break;
+		}
+	}
+	return n;
+}
+int main(){
+	//1.输入数字和符号 
+	int num;
+	char signal;
+	scanf("%d %c",&num,&signal);
+	//2.判断是否正好够用；<i>判断是否是平方数 
+	int n = square((num+1)/2);
+	//3.判断输出几行，每行几个
+	int row = 2*n-1;
+	//按行倒序输出
+	for(int i=2*n-1;i>=1;i-=2){
+		for(int k=1;k<=(2*n-1-i)/2;k++){
+			printf(" ");
+		}
+		for(int j=1;j<=i;j++){
+			printf("%c",signal);
+		}
+		printf("\n");
+	} 
+	//按行顺序输出
+	for(int i=3;i<=2*n-1;i+=2){
+		for(int k=1;k<=(2*n-1-i)/2;k++){
+			printf(" ");
+		}
+		for(int j=1;j<=i;j++){
+			printf("%c",signal);
+		}
+		printf("\n");
+	} 
+	//6.输出剩余的数 
+	int surplus = num-(2*n*n-1);
+	printf("%d",surplus);
+	return 0;
+}
+//这个格式注意：本来想用矩阵表示，*号后面放空格不过
+//测试点2是不剩数也要输出0
