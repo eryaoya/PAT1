@@ -1,0 +1,55 @@
+#include<stdio.h>
+#include<string.h>
+int main(){
+//N是输入的字符串数；length是每个字符串长度，Pnum，Anum，Tnum分别是字符串中P，A，T的个数
+	int N,length,Pnum,Anum,Tnum;
+	int k,m;//k，m记录P，T出现的下标
+	int front=0,mid=0,back=0;//分别是P前，PT中间，T后面的A的个数
+	scanf("%d",&N);
+	char string[N][101];//字符串数组
+	int T[101]={0},P[101]={0};//记录P，T出现下标
+	for(int i=0;i<=N-1;i++){
+		scanf("%s",&string[i]);
+	}
+  //对于每个字符串
+	for(int i=0;i<=N-1;i++){
+  //每个字符串刷新长度，P，T，A，k，m重新计算
+		length=strlen(string[i]);
+		Pnum=0,Anum=0,Tnum=0;
+		k=0,m=0;
+    //记录字母出现次数
+		for(int j=0;j<=length-1;j++){
+			if(string[i][j]==80){
+				Pnum++;
+				P[k]=j;
+				k++;
+			}
+			else if(string[i][j]==84){
+				Tnum++;
+				T[m]=j;
+				m++;
+			}
+			else if(string[i][j]==65){
+				Anum++;
+			}
+		}
+    //若P，T不是一个，或者有其他字母出现，都输出NO
+		if(Pnum!=1 || Tnum!=1 || (Anum+Pnum+Tnum!=length)){
+			printf("NO\n");
+		}
+    //若字母没问题，看A的个数
+		else{
+			front=P[0];
+			mid=T[0]-P[0]-1;
+			back=length-T[0]-1;
+      //若front*mid==back 且P，T之间有A，则对
+			if(front*mid==back && mid>=1){
+				printf("YES\n");
+			}
+			else{
+				printf("NO\n");
+			}
+		}
+	}
+	return 0;
+} 
