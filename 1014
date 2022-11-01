@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int main(){
+    char a[60],b[60],c[60],d[60];
+    char day[2]={0};
+    scanf("%s\n%s\n%s\n%s",&a,&b,&c,&d);
+    int temp=0,num=0;
+    //日期及小时，用字符表示
+    for (int i = 0; a[i]!='\0'&&b[i]!='\0'; ++i) {
+        if (temp==0&&a[i]==b[i]&&a[i]>='A'&&a[i]<='G'){
+            day[temp]=a[i];
+            temp++;
+        }
+        else if (temp==1&&a[i]==b[i]&&((a[i]>='A'&&a[i]<='N')||(a[i]>='0'&&a[i]<='9'))){
+            day[temp]=a[i];
+            temp++;
+        }
+    }
+    //分钟，用数字表示
+    for (int i = 0; c[i]!='\0'&&d[i]!='\0'; ++i) {
+        if (c[i]==d[i]&&((c[i]>='A'&&c[i]<='Z')||(c[i]>='a'&&c[i]<='z'))){
+            break;
+        }
+        num++;
+    }
+    //输出
+    switch (day[0]) {
+        case 'A':printf("MON ");break;
+        case 'B':printf("TUE ");break;
+        case 'C':printf("WED ");break;
+        case 'D':printf("THU ");break;
+        case 'E':printf("FRI ");break;
+        case 'F':printf("SAT ");break;
+        case 'G':printf("SUN ");break;
+    }
+    int hour = day[1]-'A'+10;
+    if (day[1]>='0'&&day[1]<='9')printf("0%d" ,day[1]-'0' );
+    else printf("%d",hour);
+    if (num<=9)printf(":0%d",num);
+    else printf(":%d",num);
+}
