@@ -1,0 +1,42 @@
+#include<stdio.h>
+//若是素数，返回1，否则返回0 
+int prime(int a){
+	int flag=0;
+	int b;
+	for(int j=2;;j++){
+		if(j*j>=a){
+			b=j;
+			break;
+		}
+	}
+	for(int i=2;i<=b;i++){
+		if(a%i==0){
+			flag=1;
+			break;
+		}
+	}
+	if(flag==0){
+		return 1;
+	}
+	else{
+		return 0;
+	}
+}
+int main(){
+	int N,n;
+	int k=0,num=0;
+	scanf("%d",&N);
+	if(N%2==0){
+		n=N/2-1;
+	}
+	else{
+		n=N/2;
+	}
+	for(int i=1;i<=n-1;i++){
+		if(prime(2*i+1) && prime(2*i+3)){
+			num++;
+		}
+	}
+	printf("%d",num);
+	return 0;
+}
