@@ -1,0 +1,18 @@
+#include<stdio.h>
+#include<string.h>
+int main(){
+	char N[1001];
+	scanf("%s",&N);
+	int length=strlen(N);
+	int num[10]={0};
+	for(int i=0;i<=length-1;i++){
+		int k=N[i]-'0';
+		num[k]++;
+	}
+	for(int i=0;i<=9;i++){
+		if(num[i]!=0){
+			printf("%d:%d\n",i,num[i]);
+		}
+	}
+	return 0;
+}
