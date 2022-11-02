@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<string.h>
+#include<math.h>
+int main(){
+	char A[10],B[10];
+	int a,b,Na,Nb;
+	int n1=0,n2=0,sum1=0,sum2=0,sum=0;
+	scanf("%s %d %s %d",&A,&a,&B,&b);
+	Na=strlen(A);
+	Nb=strlen(B);
+	for(int i=0;i<=Na-1;i++){
+		if(A[i]==a+'0'){
+			sum1=sum1+a*pow(10,n1);
+			n1++;
+		}
+	}
+	for(int i=0;i<=Nb-1;i++){
+		if(B[i]==b+'0'){
+			sum2=sum2+b*pow(10,n2);
+			n2++;
+		}
+	}
+	sum=sum1+sum2;
+	printf("%d",sum);
+	return 0;
+}
