@@ -1,0 +1,25 @@
+#include<stdio.h>
+int main(){
+	int n1,n2,n3,n4,n5,n6,a,b,c;
+	int sum1=0,sum2=0,sum=0,flag=0;
+	scanf("%d.%d.%d %d.%d.%d",&n1,&n2,&n3,&n4,&n5,&n6);
+	sum1=17*29*n1+29*n2+n3;
+	sum2=17*29*n4+29*n5+n6;
+	sum=sum2-sum1;
+	if(sum>=0){
+		a=sum/493;
+		b=sum/29-a*17;
+		c=sum-a*17*29-b*29;
+		printf("%d.%d.%d",a,b,c);
+	}
+	else{
+		printf("-");
+		sum=-sum;
+		a=sum/493;
+		b=sum/29-a*17;
+		c=sum-a*17*29-b*29;
+		printf("%d.%d.%d",a,b,c);
+	}
+
+	return 0;
+}
