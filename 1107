@@ -1,0 +1,34 @@
+#include<stdio.h>
+int main(){
+	int N,M;
+	scanf("%d %d",&N,&M);
+	int maxweight,weight;
+	int max=0;
+	int Max[N];
+	for(int i=0;i<=N-1;i++){
+		maxweight=0;
+		for(int j=0;j<=M-1;j++){
+			scanf("%d",&weight);
+			if(weight>maxweight){
+				maxweight=weight;
+			}
+			if(j==M-1){
+				Max[i]=maxweight;
+			}
+			if(weight>max){
+				max=weight;
+			}
+		}
+	}
+	for(int i=0;i<=N-1;i++){
+		printf("%d",Max[i]);
+		if(i<=N-2){
+			printf(" ");
+		}
+		else{
+			printf("\n");
+		}
+	}
+	printf("%d",max);
+	return 0;
+}
