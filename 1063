@@ -1,0 +1,17 @@
+#include<stdio.h>
+#include<math.h>
+int main(){
+	int N,n1,n2;
+	int maxsquare=0;
+	scanf("%d",&N);
+	for(int i=0;i<=N-1;i++){
+		scanf("%d %d",&n1,&n2);
+		int k=n1*n1+n2*n2;
+		if(k>maxsquare){
+			maxsquare=k;
+		}
+	}
+	double ksqrt=sqrt(maxsquare);
+	printf("%.2f",ksqrt);
+	return 0;
+}
