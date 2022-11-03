@@ -1,0 +1,26 @@
+#include<stdio.h>
+int main(){
+	int N,M,a,sum;
+	scanf("%d %d",&N,&M);
+	int score[M],answer[M];
+	for(int i=0;i<=M-1;i++){
+		scanf("%d",&score[i]);
+	}
+	for(int i=0;i<=M-1;i++){
+		scanf("%d",&answer[i]);
+	}
+	for(int i=0;i<=N-1;i++){
+		sum=0;
+		for(int j=0;j<=M-1;j++){
+			scanf("%d",&a);
+			if(a==answer[j]){
+				sum=sum+score[j];
+			}
+		}
+		printf("%d",sum);
+		if(i!=N-1){
+			printf("\n");
+		}
+	}
+	return 0;
+}
