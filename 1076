@@ -1,0 +1,18 @@
+#include<stdio.h>
+int main(){
+	int N;
+	scanf("%d",&N);
+	int answer[N];
+	char line[3];
+	for(int i=0;i<=N-1;i++){
+		for(int j=0;j<=3;j++){
+			scanf("%s",&line);
+			if(line[2]=='T'){
+				answer[i]=line[0]-'A'+1;
+			}
+		}
+	}
+	for(int i=0;i<=N-1;i++){
+		printf("%d",answer[i]);
+	}
+}
