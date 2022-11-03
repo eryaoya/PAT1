@@ -1,0 +1,30 @@
+#include<stdio.h>
+int main(){
+	char ch;
+	char a[6]={'P','A','T','e','s','t'};
+	int num[6]={0};
+	int n=0;
+	do{
+		ch=getchar();
+		if(ch!='\n'){
+			switch(ch){
+				case 'P':num[0]++;break;
+				case 'A':num[1]++;break;
+				case 'T':num[2]++;break;
+				case 'e':num[3]++;break;
+				case 's':num[4]++;break;
+				case 't':num[5]++;break;
+			}
+			n++;
+		}
+	}while(ch!='\n');
+	for(int i=0;i<=n-1;i++){
+		for(int j=0;j<=5;j++){
+			if(num[j]>0){
+				printf("%c",a[j]);
+				num[j]--;
+			}
+		}
+	}
+	return 0;
+}
