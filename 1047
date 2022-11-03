@@ -1,0 +1,26 @@
+#include<stdio.h>
+//6
+//3-10 99
+//11-5 87
+//102-1 0
+//102-3 100
+//11-9 89
+//3-2 61
+int main(){
+	int N,n,maxteam,n1,n2;
+	int maxscore=0;
+	int score[1001]={0};
+	scanf("%d",&N);
+	for(int i=0;i<=N-1;i++){
+		scanf("%d-%d %d",&n1,&n2,&n);
+		score[n1]=score[n1]+n;
+	}
+	for(int i=0;i<=1000;i++){
+		if(score[i]>maxscore){
+			maxteam=i;
+			maxscore=score[i];
+		}
+	}
+	printf("%d %d",maxteam,maxscore);
+	return 0;
+}
