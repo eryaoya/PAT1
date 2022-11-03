@@ -1,0 +1,13 @@
+#include<stdio.h>
+#include<math.h>
+int main(){
+	int N,num;
+	scanf("%d",&N);
+	int sum=0;
+	for(int i=0;i<=N-1;i++){
+		scanf("%d",&num);
+		sum=sum+num*11*(N-1);
+	}
+	printf("%d",sum);
+	return 0;
+}
