@@ -1,0 +1,30 @@
+#include<stdio.h>
+#include<math.h>
+//1.若能，即上边最小值大于下边最大值，计算差
+//2.若不能，即上边最小值小于等于下边最大值，计算上边最小值-1与下边最大值的差，取绝对值 
+int main(){
+	int N,n;
+	scanf("%d",&N);
+	int upmin=1000,lowmax=0;
+	for(int i=0;i<=N-1;i++){
+		scanf("%d",&n);
+		if(n<upmin){
+			upmin=n;
+		}
+	}
+	for(int i=0;i<=N-1;i++){
+		scanf("%d",&n);
+		if(n>lowmax){
+			lowmax=n;
+		}
+	}
+	int width=upmin-lowmax;
+	if(width>0){
+		printf("Yes %d",width);
+	}
+	else{
+		width=abs(width-1);
+		printf("No %d",width);
+	}
+	return 0;
+}
