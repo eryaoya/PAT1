@@ -1,0 +1,43 @@
+#include<stdio.h>
+#include<math.h> 
+int main(){
+	int N,temp;
+	scanf("%d",&N);
+	int answer[N+1];
+	int real[N+1];
+	int lie[100]={0};
+	int Lie=0,flag=0;
+	for(int i=1;i<=N;i++){
+		scanf("%d",&answer[i]);
+	}
+	//若i，j是狼人 
+	for(int i=1;i<=N;i++){
+		for(int j=i+1;j<=N;j++){
+			Lie=0;
+			for(int m=1;m<=N;m++){
+				real[m]=1;
+			}
+			real[i]=-1;
+			real[j]=-1;
+			for(int m=1;m<=N;m++){
+				temp=abs(answer[m]);
+				if(real[temp]*answer[m]<0){
+					lie[Lie]=m;
+					Lie++;
+				}
+			}
+			if(Lie==2 && real[lie[0]]*real[lie[1]]<0){
+				printf("%d %d",i,j);
+				flag=1;
+				break;
+			}
+		}
+		if(flag==1){
+			break;
+		}
+	}
+	if(flag==0){
+		printf("No Solution");
+	}
+	return 0;
+}
