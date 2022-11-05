@@ -1,0 +1,35 @@
+#include<stdio.h>
+#include<string.h>
+#include<math.h>
+void judge(char n[]){
+	int length=strlen(n);//length是数的位数 
+	int num=0,flag=0;
+	int k,m,p,q;
+	for(int i=0;i<=length-1;i++){
+		q=(n[i]-'0')*pow(10,length-i-1);
+		num=num+q;
+	}
+	for(int i=1;i<=9;i++){
+		k=num*num*i;
+		m=k-num;
+		p=pow(10,length);
+		if(m%p==0 ){
+			flag=1;
+			printf("%d %d\n",i,k);
+			break;
+		}
+	}
+	if(flag==0){
+		printf("No\n");
+	}
+}
+int main(){
+	int N;
+	scanf("%d",&N);
+	char num[5];
+	for(int i=0;i<=N-1;i++){
+		scanf("%s",&num);
+		judge(num);
+	}
+	return 0;
+}
