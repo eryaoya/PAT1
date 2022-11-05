@@ -1,0 +1,40 @@
+#include<stdio.h>
+int main(){
+	int n,k,x;
+	int count=0,flag=0;
+	scanf("%d %d %d",&n,&k,&x);
+	int matrix[100][100]={0};
+	int colsum[100]={0};
+	for(int i=0;i<=n-1;i++){
+		for(int j=0;j<=n-1;j++){
+			scanf("%d",&matrix[i][j]);
+		}
+	}
+	//对于奇数行 
+	for(int i=0;i<=n-1;i=i+2){
+		//算第几个奇数
+		count=i/2+1;
+		count=count%k;
+		if(count==0){
+			count=k;
+		}
+		for(int j=n-1;j>=count-1;j--){
+			matrix[i][j]=matrix[i][j-count];
+		}
+		for(int j=0;j<=count-1;j++){
+			matrix[i][j]=x;
+		}
+	}
+	for(int i=0;i<=n-1;i++){//i是列 
+		for(int j=0;j<=n-1;j++){//j是行 
+			colsum[i]=colsum[i]+matrix[j][i];
+		}
+		if(i!=n-1){
+			printf("%d ",colsum[i]);
+		}
+		else{
+			printf("%d",colsum[i]);
+		}
+	}
+	return 0;
+}
