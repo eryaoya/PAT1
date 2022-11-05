@@ -1,0 +1,29 @@
+#include<stdio.h>
+struct node{
+	char ID[9];
+	int price;
+	int num;
+	int sale;
+}; 
+int main(){
+	int N,s;
+	int maxnum=0,maxsale=0;
+	scanf("%d",&N);
+	struct node paper[N];
+	for(int i=0;i<=N-1;i++){
+		scanf("%s",&paper[i].ID );
+		scanf("%d",&paper[i].price );
+		scanf("%d",&paper[i].num );
+		s=paper[i].num * paper[i].price ;
+		paper[i].sale = s;
+		if(paper[i].num >paper[maxnum].num ){
+			maxnum=i;
+		}
+		if(paper[i].sale  >paper[maxsale].sale ){
+			maxsale=i;
+		}
+	}
+	printf("%s %d\n",paper[maxnum].ID ,paper[maxnum].num );
+	printf("%s %d",paper[maxsale].ID ,paper[maxsale].sale  );
+	return 0;
+}
