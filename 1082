@@ -1,0 +1,25 @@
+#include<stdio.h>
+typedef struct node{
+	char ID[5];
+	int length;
+}fighter;
+int main(){
+	int N,x,y;
+	int maxlength=0,minlength=20001,maxnum=0,minnum=0;
+	scanf("%d\n",&N);
+	fighter fit[10001];
+	for(int i=0;i<=N-1;i++){
+		scanf("%s %d %d",fit[i].ID,&x,&y );
+		fit[i].length=x*x+y*y; 
+		if(fit[i].length>maxlength){
+			maxlength=fit[i].length ;
+			maxnum=i;
+		}
+		if(fit[i].length<minlength){
+			minlength=fit[i].length ;
+			minnum=i;
+		}
+	}
+	printf("%s %s",fit[minnum].ID ,fit[maxnum].ID );
+	return 0;
+}
