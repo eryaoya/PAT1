@@ -1,0 +1,24 @@
+#include<stdio.h>
+int Sum(int n){
+	int a,b,c;
+	int sum=0;
+	a= (int)(n/2);
+	b= (int)(n/3);
+	c= (int)(n/5);
+	sum=a+b+c;
+	return sum;
+}
+int main(){
+	int N,sum;
+	int k=0;
+	int num[100000]={0};
+	scanf("%d",&N);
+	for(int i=1;i<=N;i++){
+		sum=Sum(i);
+		if(num[sum]==0){
+			num[sum]++;
+			k++;
+		}
+	}
+	printf("%d",k);
+}
