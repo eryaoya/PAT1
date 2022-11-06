@@ -1,7 +1,7 @@
 #include<stdio.h>
 int main(){
 	//1.输入排序，从小到大
-	int N,temp;
+	int N,temp,M;
 	double sum=0;
 	int k=0;
 	scanf("%d",&N);
@@ -23,10 +23,7 @@ int main(){
 		sum=sum/2;
 		sum=sum+(double)num[i]/2;
 	}
-	sum=(int)sum;
-	while(k<=sum){
-		k++;
-	}
-	printf("%d",k-1);
+	M=(int)sum;
+	printf("%d",M);
 	return 0;
 }
