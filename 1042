@@ -1,0 +1,24 @@
+#include<stdio.h>
+int main(){
+	int k;
+	int maxcount=0,maxnum=128;
+	int ASCII[128]={0};
+	char ch;
+	do{
+		ch=getchar();
+		k=ch;
+		if(k>=65 &&k<=90){
+			k=k+32;
+			
+		}
+		ASCII[k]++;
+	}while(ch!='\n');
+	for(int i=0;i<=127;i++){
+		if(ASCII[i]>maxcount && (i>=97 &&i<=122)){
+			maxcount=ASCII[i];
+			maxnum=i;
+		}
+	}
+	printf("%c %d",maxnum,maxcount);
+	return 0;
+}
