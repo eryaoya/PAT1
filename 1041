@@ -1,0 +1,25 @@
+#include<stdio.h>
+//1.设置一个结构体数组，数组下标代表试机座位
+typedef struct Node{
+	char ID[17];
+	int Test;
+}student; 
+int main(){
+	int N,n1,n2,M,n;
+	scanf("%d",&N);
+	student stu[1001];
+	char id[17];
+	for(int i=0;i<=N-1;i++){
+		scanf("%s %d %d",id,&n1,&n2);
+		for(int j=0;j<=16;j++){
+			stu[n1].ID[j]=id[j];
+		}
+		stu[n1].Test = n2;
+	}
+	scanf("%d",&M);
+	for(int i=0;i<=M-1;i++){
+		scanf("%d",&n);
+		printf("%s %d\n",stu[n].ID ,stu[n].Test );
+	}
+	return 0;
+}
