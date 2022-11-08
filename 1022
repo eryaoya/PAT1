@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<math.h>
+int main(){
+	unsigned int A,B,C,D,k,m,n;
+	scanf("%d %d %d",&A,&B,&D);
+	C=A+B;
+	//printf("%d\n",C);
+	if(C==0){
+		printf("0");
+	}
+	for(int i=0;;i++){
+		if(pow(D,i)>C){
+			k=i;
+			break;
+		}
+	}
+	k=k-1;
+	//printf("%d\n",k);
+	for(int i=k;i>=0;i--){
+		m=pow(D,i);
+		n=C/pow(D,i);
+		printf("%d",n);
+		C=C%m;
+	}
+	return 0;
+}
