@@ -1,0 +1,81 @@
+#include<stdio.h>
+#include<string.h>
+//7_This_is_a_test
+//_hs_s_a_es
+//A~Z(0~25),0~9(26~35),_(36)
+int main(){
+	char string1[81];
+	char string2[81];
+	int num1[37]={0},num2[37]={0};
+	scanf("%s %s",string1,string2);
+	int length1,length2,k;
+	length1=strlen(string1);
+	length2=strlen(string2);
+	for(int i=0;i<=length1-1;i++){
+		if(string1[i]>='A' && string1[i]<='Z'){
+			k=string1[i]-'A';
+			num1[k]++;
+		}
+		if(string1[i]>='a' && string1[i]<='z'){
+			k=string1[i]-'a';
+			num1[k]++;
+		}
+		if(string1[i]>='0' && string1[i]<='9'){
+			k=string1[i]-'0'+26;
+			num1[k]++;
+		}
+		if(string1[i]=='_'){
+			k=36;
+			num1[k]++;
+		}
+	}
+	for(int i=0;i<=length2-1;i++){
+		if(string2[i]>='A' && string2[i]<='Z'){
+			k=string2[i]-'A';
+			num2[k]++;
+		}
+		if(string2[i]>='a' && string2[i]<='z'){
+			k=string2[i]-'a';
+			num2[k]++;
+		}
+		if(string2[i]>='0' && string2[i]<='9'){
+			k=string2[i]-'0'+26;
+			num2[k]++;
+		}
+		if(string2[i]=='_'){
+			k=36;
+			num2[k]++;
+		}
+	}
+	for(int i=0;i<=length1-1;i++){
+		if(string1[i]>='A' && string1[i]<='Z'){
+			k=string1[i]-'A';
+			if(num1[k]>0 && num2[k]==0){
+				printf("%c",string1[i]);
+				num1[k]=0;
+			}
+		}
+		if(string1[i]>='a' && string1[i]<='z'){
+			k=string1[i]-'a';
+			if(num1[k]>0 && num2[k]==0){
+				printf("%c",string1[i]-'a'+'A');
+				num1[k]=0;
+			}
+		}
+		if(string1[i]>='0' && string1[i]<='9'){
+			k=string1[i]-'0'+26;
+			if(num1[k]>0 && num2[k]==0){
+				printf("%c",string1[i]);
+				num1[k]=0;
+			}
+		}
+		if(string1[i]=='_'){
+			k=36;
+			if(num1[k]>0 && num2[k]==0){
+				printf("%c",string1[i]);
+				num1[k]=0;
+			}
+		}
+	}
+	return 0;
+}
