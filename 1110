@@ -1,0 +1,54 @@
+#include<stdio.h>
+//方法一：用数组，不用链表 
+struct LNode{
+	int address,data,next;
+};
+int main(){
+	struct LNode List[100001];
+	int PtrL,N,K,n;
+	int p=0,a=0,b=0;
+	int list[100001],L[100001];
+	scanf("%d %d %d",&PtrL,&N,&K);
+	for(int i=0;i<=N-1;i++){
+		scanf("%d",&n);
+		scanf("%d %d",&List[n].data,&List[n].next);
+	}
+	a=PtrL;
+	for(int i=0;i<=N-1;i++){
+		if(a==-1){
+			break;
+		}
+		if(i%K==0){
+			list[p]=a;
+			p++;
+		}
+		b=List[a].next;
+		a=b;
+	}
+	//已经排好list 
+		for(int i=p-1;i>=1;i--){
+			int m=list[i];
+			int h=list[i-1];
+			for(int j=0;j<=K-1;j++){
+				if(j!=K-1 && List[m].next!=-1){
+					printf("%05d %d %05d\n",m,List[m].data,List[m].next);
+				}
+				else{
+					printf("%05d %d %05d\n",m,List[m].data,h);
+					break;
+				}
+				m=List[m].next;
+			} 
+		}
+		int m=list[0];
+		for(int j=0;j<=K-1;j++){
+			if(j!=K-1){
+					printf("%05d %d %05d\n",m,List[m].data,List[m].next);
+				}
+				else{
+					printf("%05d %d -1\n",m,List[m].data);
+				}
+				m=List[m].next;
+		}
+		return 0;
+}
