@@ -1,0 +1,29 @@
+#include<stdio.h>
+int main(){
+	int N,M,n;
+	int sale[1001]={0};
+	int maxsale=0,flag=0;
+	scanf("%d %d",&N,&M);
+	for(int i=0;i<=M-1;i++){
+		for(int j=0;j<=N-1;j++){
+			scanf("%d",&n);
+			sale[j]=sale[j]+n;
+			if(sale[j]>maxsale){
+				maxsale=sale[j];
+			}
+		}
+	}
+	printf("%d\n",maxsale);
+	for(int i=0;i<=N-1;i++){
+		if(sale[i]==maxsale){
+			if(flag==0){
+				printf("%d",i+1);
+			}
+			else{
+				printf(" %d",i+1);
+			}
+			flag=1;
+		}
+	}
+	return 0;
+}
