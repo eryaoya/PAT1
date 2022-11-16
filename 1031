@@ -1,0 +1,47 @@
+#include<stdio.h>
+int weight[17]={7,9,10,5,8,4,2,1,6,3,7,9,10,5,8,4,2};
+	char Z[11]={'1','0','X','9','8','7','6','5','4','3','2'};
+int correct(char string[]){
+	int sum=0;
+	int num;
+	for(int i=0;i<=16;i++){
+		num=string[i]-'0';
+		if(num>=0 && num<=9){
+			sum=sum+num*weight[i];//算权重 
+		}
+		else{
+			return 0;
+		}
+	}
+	//对11取余
+	sum=sum%11;
+	if(string[17]==Z[sum]){
+		return 1;
+	} 
+	else{
+		return 0;
+	}
+}
+int main(){
+	//建立N个字符串数组，把身份证以string形式输入
+	int N;
+	int Flag=0;
+	scanf("%d",&N);
+	char string[100][19];//最多有100条身份证ID，每个身份证18位
+	for(int i=0;i<=N-1;i++){
+		//读入身份证
+		scanf("%s",string[i]); 
+	} 
+	for(int i=0;i<=N-1;i++){
+		//依次判断 
+		int flag=correct(string[i]);
+		if(flag==0){
+			Flag=1;
+			printf("%s\n",string[i]);
+		}
+	}
+	if(Flag==0){
+		printf("All passed");
+	}
+	return 0;
+}
