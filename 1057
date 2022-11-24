@@ -1,0 +1,49 @@
+#include<stdio.h>
+#include<string.h>
+int main(){
+	char string[100001];
+	int N=0,num=0;
+	char ch;
+	do{
+		ch=getchar();
+		string[num]=ch;
+		num++;
+	}while(ch!='\n');
+	for(int i=0;i<=num-1;i++){
+		if(string[i]<=90){
+			int k=string[i]-'A'+1;
+			if(k>=1 && k<=26){
+				N=N+k;
+			}
+			//printf("%d %d\n",N,k);
+		}
+		else{
+			int k=string[i]-'a'+1;
+			if(k>=1 && k<=26){
+				N+=k;	
+			}
+			//printf("%d %d\n",N,k);
+		}
+	}
+	int flag=0;
+	//printf("%d\n",N);
+	if(N==0){
+		printf("0 0");
+	}
+	else{
+		int a=0,b=0;
+		do{
+			if(N%2==1){
+				a++;
+			}
+			else{
+				b++;
+			}
+			N=N/2;
+			//printf("%d %d %d\n",N,a,b);
+		}while(N!=0);
+		
+		printf("%d %d",b,a);
+	}
+	return 0;
+} 
