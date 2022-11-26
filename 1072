@@ -1,0 +1,44 @@
+#include<stdio.h>
+int yesorno(int n[],int N,int M){
+	int flag=0;
+	for(int i=0;i<=M-1;i++){
+		if(N==n[i]){
+			flag=1;
+			break;
+		}
+	}
+	return flag;
+}
+int main(){
+	int N,M,K,n;
+	char name[5];
+	scanf("%d %d",&N,&M);
+	//输入M个违禁品的编号 
+	int num[6];
+	int stu=0,stuff=0;
+	for(int i=0;i<=M-1;i++){
+		scanf("%d",&num[i]);
+	}
+	for(int i=0;i<=N-1;i++){
+		int flag=0;
+		scanf("%s %d",name,&K);
+		for(int j=0;j<=K-1;j++){//输入这个学生带的K个东西的编号 
+			scanf("%d",&n);
+			int p=yesorno(num,n,M);
+			if(p==1){
+				if(flag==0){
+					printf("%s:",name);
+					flag=1;
+					stu++;
+				}
+				printf(" %04d",n);
+				stuff++;
+			}
+		}
+		if(flag==1){
+			printf("\n");
+		}
+	}
+	printf("%d %d",stu,stuff);
+	return 0;
+}
