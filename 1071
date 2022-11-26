@@ -1,0 +1,50 @@
+#include<stdio.h>
+struct node{
+	int N;
+	int n;
+	int a;
+	int money;
+};
+int main(){
+	int T,K,flag;
+	scanf("%d %d",&T,&K);
+	struct node game[100];
+	for(int i=0;i<=K-1;i++){
+		scanf("%d %d %d %d",&game[i].N,&game[i].a,&game[i].money,&game[i].n);
+	}
+	for(int i=0;i<=K-1;i++){
+		if(game[i].money>T){
+			printf("Not enough tokens.  Total = %d.\n",T);
+			continue;
+		}
+		if(game[i].a==0){
+			if(game[i].n<game[i].N){
+				flag=1;//赢了是1 
+			}
+			else{
+				flag=0;
+			}
+		}
+		else{
+			if(game[i].n>game[i].N){
+				flag=1;//赢了是1 
+			}
+			else{
+				flag=0;
+			}
+		}
+		if(flag==1){
+			T=T+game[i].money;
+			printf("Win %d!  Total = %d.\n",game[i].money,T);
+		}
+		else{
+			T=T-game[i].money;
+			printf("Lose %d.  Total = %d.\n",game[i].money,T);
+		}
+		if(T==0){
+			printf("Game Over.\n");
+			break;
+		}
+	}
+	return 0;
+}
